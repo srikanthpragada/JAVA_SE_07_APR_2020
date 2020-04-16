@@ -21,6 +21,18 @@ public class Account {
 		balance = bal;
 	}
 	
+	public void deposit(double amount) {
+		balance += amount;
+	}
+	
+	public void withdraw(double amount) {
+		balance -= amount;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
     // Methods 
 	public void print() {
 		System.out.println(acno);
