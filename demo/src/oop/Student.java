@@ -24,6 +24,15 @@ public class Student {
      public void payment(int amount) {
     	 this.feepaid += amount;
      }
+     
+     public String getName() {
+    	 return this.name;
+     }
+     
+     public String getCourseName() {
+    	 return  this.course== 1 ? "Python" : "Data Science";
+     }
+     
      public int getDueAmount() {
     	 if (course == 1)
     		 return 5000 - this.feepaid;
