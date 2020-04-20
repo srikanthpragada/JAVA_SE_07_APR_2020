@@ -5,6 +5,10 @@ public class Student {
      private int course;
      private int feepaid;
      
+     private final static int TAXRATE = 15;
+     private final static int PYTHON_FEE = 5000;
+     private final static int DS_FEE = 10000;
+     
      public Student(String name) {
     	 this.name = name;
     	 this.course = 1; 
@@ -33,10 +37,14 @@ public class Student {
     	 return  this.course== 1 ? "Python" : "Data Science";
      }
      
-     public int getDueAmount() {
-    	 if (course == 1)
-    		 return 5000 - this.feepaid;
+     public int getTotalFee() {
+    	 if (this.course == 1)
+    		 return PYTHON_FEE + PYTHON_FEE * Student.TAXRATE / 100;
     	 else
-    		 return 10000 - this.feepaid;
+    		 return DS_FEE + DS_FEE * Student.TAXRATE / 100;
+     }
+     
+     public int getDueAmount() {
+    	  return  getTotalFee() - feepaid;
      }
 }
