@@ -1,6 +1,6 @@
 package oop;
 
-class Product {
+abstract class Product {
 	protected String name;
 	protected int price;
 
@@ -14,6 +14,8 @@ class Product {
 		System.out.println(this.name);
 		System.out.println(this.price);
 	}
+    
+	abstract public int getSellingPrice();
 }
 
 class DiscountProduct extends Product {
@@ -57,8 +59,13 @@ class ImportedProduct extends Product {
 public class TestProduct {
 
 	public static void main(String[] args) {
-         DiscountProduct dp = new DiscountProduct("Product1", 10000,20);
-         dp.print();
-         System.out.println(dp.getSellingPrice());
+         Product p = new DiscountProduct("Product1", 10000,20);
+         p.print(); // Runtime Polymorphism 
+         System.out.println(p.getSellingPrice());  // R.P
+         
+         p = new ImportedProduct("iPhone 11",80000,25);
+         p.print(); // Runtime Polymorphism 
+         System.out.println(p.getSellingPrice());  // R.P
+         
 	}
 }
