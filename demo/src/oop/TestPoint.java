@@ -21,6 +21,10 @@ class Point {
 		Point other = (Point) obj;  // Downcasting
 		return this.x == other.x && this.y == other.y;
 	}
+	@Override 
+	public int hashCode() {
+		return 1;
+	}
 }
 
 public class TestPoint {
@@ -34,6 +38,8 @@ public class TestPoint {
 		System.out.println(p1.equals(p3));
 		System.out.println(p1.toString());
 		System.out.println(p1.equals("Abc"));
+		System.out.println(p1.hashCode());
+		System.out.println(p2.hashCode());
 	}
 
 }
