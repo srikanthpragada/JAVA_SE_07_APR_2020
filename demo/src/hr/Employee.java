@@ -9,5 +9,9 @@ public class Employee {
 
 // Package level class 
 class Leave {
+		
+	public void print() {
+		
+	}
 	
 }
