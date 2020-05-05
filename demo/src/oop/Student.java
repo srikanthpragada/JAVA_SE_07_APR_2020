@@ -17,6 +17,7 @@ public class Student {
      public Student(String name, int course) {
     	 this.name = name;
     	 this.course = course; 
+    	 assert course == 1 || course == 2 : "Invalid course code!";
      }
      
      public Student(String name, int course, int feepaid) {
