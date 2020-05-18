@@ -4,17 +4,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
 
 public class WordFreq {
 
 	public static void main(String[] args) throws IOException {
-
+		Pattern pattern = Pattern.compile("\\W+");
 		Path p = Path.of("c:\\classroom\\apr7\\lion.txt");
 		TreeMap<String, Integer> wordFreq = new TreeMap<>();
 		int count;
 
 		for (String line : Files.readAllLines(p)) {
-			String words[] = line.split(" ");
+			String words[] = pattern.split(line);
 			for (String word : words) {
 				if (wordFreq.containsKey(word)) {
 					count = wordFreq.get(word);
