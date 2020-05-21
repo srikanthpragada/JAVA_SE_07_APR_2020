@@ -17,7 +17,7 @@ public class ShowJavaFileContent extends JFrame {
 		super(filename);
 		taContents = new JTextArea();
 		taContents.setEditable(false);
-		taContents.setFont(new Font("consolas",Font.PLAIN, 11));
+		taContents.setFont(new Font("consolas",Font.PLAIN, 14));
 
 		JScrollPane sp = new JScrollPane(taContents, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

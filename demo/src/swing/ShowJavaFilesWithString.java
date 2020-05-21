@@ -18,18 +18,20 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class ShowJavaFiles extends JFrame {
+public class ShowJavaFilesWithString extends JFrame {
 
 	JTextField tfDir;
+	JTextField tfString;
 	JButton btnList, btnExit;
 	JList<String> lstFiles;
 	DefaultListModel<String> files;
 
-	public ShowJavaFiles() {
+	public ShowJavaFilesWithString() {
 		super("Java Files");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		tfDir = new JTextField(20);
+		tfString = new JTextField(20);
 		tfDir.setText("c:\\classroom\\apr7");
 		btnList = new JButton("List");
 		btnExit = new JButton("Exit");
@@ -37,6 +39,7 @@ public class ShowJavaFiles extends JFrame {
 		JPanel tp = new JPanel();
 		tp.add(new JLabel("Directory :"));
 		tp.add(tfDir);
+		tp.add(tfString);
 		tp.add(btnList);
 		tp.add(btnExit);
 
@@ -95,7 +98,7 @@ public class ShowJavaFiles extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new ShowJavaFiles();
+		new ShowJavaFilesWithString();
 
 	}
 

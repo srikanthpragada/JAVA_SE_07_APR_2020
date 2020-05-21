@@ -49,6 +49,9 @@ public class ListDemo extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400, 200);
+		
+		// btnClear.addActionListener( e -> lst.clearSelection());
+		
 
 		ActionListener action = evt -> {
 			// did user click on unselect button 
