@@ -39,6 +39,7 @@ public class ShowJavaFilesWithString extends JFrame {
 		JPanel tp = new JPanel();
 		tp.add(new JLabel("Directory :"));
 		tp.add(tfDir);
+		tp.add(new JLabel("String :"));
 		tp.add(tfString);
 		tp.add(btnList);
 		tp.add(btnExit);
@@ -53,7 +54,7 @@ public class ShowJavaFilesWithString extends JFrame {
 		c.add(tp, BorderLayout.NORTH);
 		c.add(jsp, BorderLayout.CENTER);
 
-		setSize(500, 500);
+		setSize(800, 500);
 		setVisible(true);
 
 		// Event handling
@@ -84,15 +85,19 @@ public class ShowJavaFilesWithString extends JFrame {
 			Path dir = Paths.get(tfDir.getText());
 			files.clear(); // Clear items from model
 
-			Files.walk(dir)
-			   .forEach(p -> {
-				    if (p.toString().endsWith(".java"))
-					    files.addElement(p.toString());
+			Files.walk(dir).forEach(p -> {
+				if (p.toString().endsWith(".java")) {
+					try {
+						if (Files.readString(p).contains(tfString.getText()))
+							files.addElement(p.toString());
+					} catch (Exception ex) {
+
+					}
+				}
 			});
-			
+
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(),
-					"Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
